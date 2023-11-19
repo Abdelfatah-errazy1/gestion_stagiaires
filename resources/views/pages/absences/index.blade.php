@@ -18,9 +18,10 @@
                 @foreach ($absences as $absence)
                     <tr>
                         <td>{{ $absence->id }}</td>
-                        <td>{{ $absence->Cin_Stagiaire }}</td>
-                        <td>{{ $absence->Date_Absence }}</td>
-                        <td>{{ $absence->Motif }}</td>
+                        <td>{{ $absence->Cin }}</td>
+                        <td>{{ $absence->date_debut}}</td>
+                        <td>{{ $absence->date_fin}}</td>
+                        <td>{{ $absence->justification }}</td>
                         <td>
                             <a href="{{ route('absences.show', $absence->id) }}" class="btn btn-info btn-sm">Voir</a>
                             <a href="{{ route('absences.edit', $absence->id) }}" class="btn btn-warning btn-sm">Modifier</a>

@@ -5,25 +5,28 @@
     <div class="container">
         <h2 class="mt-3 mb-4">Ajouter une Absence</h2>
 
-        <form action="{{ route('absences.store') }}" method="POST">
-            @csrf
+        <form method="POST" action="{{ route('absences.store') }}">
+        @csrf
+        <div class="row">
 
-            <div class="mb-3">
-                <label for="Cin_Stagiaire" class="form-label">CIN du Stagiaire</label>
-                <input type="text" class="form-control" id="Cin_Stagiaire" name="Cin_Stagiaire" required>
+            <div class="form-group mb-3 col col-md-12">
+                <label for="Cin">CIN Stagiaire:</label>
+                <input type="text" class="form-control" id="Cin" name="Cin">
             </div>
-
-            <div class="mb-3">
-                <label for="Date_Absence" class="form-label">Date d'Absence</label>
-                <input type="date" class="form-control" id="Date_Absence" name="Date_Absence" required>
+            <div class="form-group mb-3 col col-md-6">
+                <label for="date_debut">Start Date:</label>
+                <input type="date" class="form-control" id="date_debut" name="date_debut">
             </div>
-
-            <div class="mb-3">
-                <label for="Motif" class="form-label">Motif</label>
-                <textarea class="form-control" id="Motif" name="Motif" rows="3" required></textarea>
+            <div class="form-group mb-3 col col-md-6">
+                <label for="date_fin">End Date:</label>
+                <input type="date" class="form-control" id="date_fin" name="date_fin">
             </div>
-
-            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <div class="form-group mb-3 col col-md-12">
+                <label for="justification">Justification:</label>
+                <textarea class="form-control" id="justification" name="justification"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
         </form>
     </div>
 @endsection

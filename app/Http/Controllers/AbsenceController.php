@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absence;
+use App\Models\Notificaiton;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -44,7 +45,15 @@ class AbsenceController extends Controller
         $absence->date_fin = $request->input('date_fin');
         $absence->justification = $request->input('justification');
         $absence->save();
+        $absences=Absence::query()->whereNull('justification')->get();
+        if(count($absences)>=3){
+            $noti=Notificaiton::create([
+                'titre'=>'le stagiaire avec le Cin '.$absence->Cin.' a '.count($absences).' absences .'
+            ]);
+        }
+        dd($noti);
         return redirect()->route('absences.index');
+        
     }
 
     public function update(Request $request, $id)

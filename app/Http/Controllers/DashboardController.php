@@ -2,13 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use \DB;
+use App\Models\Stage;
 
 class DashboardController extends Controller
 {
     public function index(){
         
-        
-        return view('pages.index');
+        $division = Stage::select('Division', DB::raw('COUNT(*) as count'))
+        ->groupBy('Division')
+        ->pluck('count', 'Division');
+      
+        return view('pages.index',compact('division'));
+    }
+    public function show($code)
+    {
+        $stagiaires = Stage::query()
+        ->join('stagiaires', 'stages.Cin_Stagiaire', '=', 'stagiaires.Cin')
+        ->select('stages.Division', 'stagiaires.*')
+        ->where('Division',$code)
+        ->get();
+        return view('pages.stagiaires.index', compact('stagiaires'));
     }
 }

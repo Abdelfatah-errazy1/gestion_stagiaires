@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     protected $fillable = [
-        'Cin_Stagiaire', 'Date_D', 'Date_F', 'Sujet_Stage', 'Division', 'Nom_enc', 'Prenom_enc', 'Tel_enc',
+        'Cin', 'Date_D', 'Date_F', 'Sujet_Stage', 'Division', 'Nom_enc', 'Prenom_enc', 'Tel_enc',
     ];
 
     // Relations
-    public function stagiaire()
+    public function stagiaires()
     {
-        return $this->belongsTo(Stagiaire::class, 'Cin_Stagiaire');
+        return $this->belongsTo(Stagiaire::class, 'Cin');
     }
 }

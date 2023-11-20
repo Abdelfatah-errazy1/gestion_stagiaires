@@ -25,7 +25,8 @@
 
                                 <a href="{{ route('stagiaires.show', $stagiaire->Cin) }}" class="btn btn-info btn-sm">Voir</a>
                                 <a href="{{ route('stagiaires.edit', $stagiaire->Cin) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                <a href="{{ route('stagiaires.destroy', $stagiaire->Cin) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                
+                                <a href="{{ route('stagiaires.destroy', $stagiaire->Cin) }}"   onclick="confirmeDelete(event)" class="btn btn-danger btn-sm">Supprimer</a>
                             </div>
                         </td>
                     </tr>

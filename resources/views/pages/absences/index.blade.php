@@ -9,8 +9,9 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">CIN du Stagiaire</th>
-                    <th scope="col">Date d'Absence</th>
-                    <th scope="col">Motif</th>
+                    <th scope="col">Date debut</th>
+                    <th scope="col">date fin</th>
+                    <th scope="col">justification</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -27,7 +28,7 @@
 
                                 <a href="{{ route('absences.show', $absence->id) }}" class="btn btn-info btn-sm">Voir</a>
                                 <a href="{{ route('absences.edit', $absence->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                <a href="{{ route('absences.destroy', $absence->id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                <a href="{{ route('absences.destroy', $absence->id) }}" onclick="confirmeDelete(event)" class="btn btn-danger btn-sm">Supprimer</a>
                             </div>
                         </td>
                     </tr>

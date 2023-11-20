@@ -7,7 +7,7 @@
               <h6>Filter</h6>
             </li>
 
-            <li><a class="dropdown-item text-primary" href="{{ route('stagiaires.index') }}">Affichier Stgiaires</a></li>
+            <li><a class="dropdown-item text-primary" href="{{ route('stagiaires.division',$code) }}">Affichier Stgiaires</a></li>
           </ul>
       </div>
       <div class="card-body">

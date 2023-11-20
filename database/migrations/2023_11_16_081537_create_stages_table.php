@@ -9,8 +9,8 @@ class CreateStagesTable extends Migration
     {
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
-            $table->string('Cin_Stagiaire', 10);
-            $table->foreign('Cin_Stagiaire')->references('Cin')->on('stagiaires');
+            $table->string('Cin', 10);
+            $table->foreign('Cin')->references('Cin')->on('stagiaires')->cascadeOnDelete();
             $table->date('Date_D')->nullable();
             $table->date('Date_F')->nullable();
             $table->text('Sujet_Stage')->nullable();

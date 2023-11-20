@@ -10,8 +10,8 @@
             <div class="row">
 
                 <div class="mb-3 col col-md-6">
-                    <label for="Cin_Stagiaire" class="form-label">CIN du Stagiaire</label>
-                <input type="text" class="form-control" id="Cin_Stagiaire" name="Cin_Stagiaire" required>
+                    <label for="Cin" class="form-label">CIN du Stagiaire</label>
+                <input type="text" class="form-control" id="Cin" name="Cin" required>
             </div>
             <div class="mb-3 col col-md-6">
                 <label for="Division" class="form-label">Division</label>

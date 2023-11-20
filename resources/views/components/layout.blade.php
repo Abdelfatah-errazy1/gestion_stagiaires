@@ -26,8 +26,11 @@
   <link href="{{ asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
+  <link href="  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css  " rel="stylesheet">
+  <script src="  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js  "></script>
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -60,7 +63,7 @@
   <!-- ======= Footer ======= -->
       @include('partials._footer')
   <!-- End Footer -->
-
+  @include('partials._import')
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
@@ -75,6 +78,26 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
+  <script>
+  function confirmeDelete(event) {
+    event.preventDefault(); 
+  
+    Swal.fire({
+      title: 'Es-tu sûr?',
+      text: "Vous ne pourrez pas revenir en arrière!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = event.target.getAttribute('href');
+        // console.log(event.target);
+      }
+    });
+  }
+    </script>
 
 </body>
 

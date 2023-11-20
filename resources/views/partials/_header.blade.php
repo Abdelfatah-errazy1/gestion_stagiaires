@@ -18,12 +18,21 @@
         </a>
       </li><!-- End Search Icon-->
       <li class="nav-item d-block ">
-        <a class="nav-link nav-icon search-bar-toggle " href="#">
-          <form action="" method="GET">
-            @csrf
-            <a class="btn btn-success" href="{{ url('/save') }}">Sauvgarder</a>
-        </form>
+        <div class="float-end ">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Import 
+        </button>  
+        </div>
+        
+<!-- Modal -->
+
+
+
         </a>
+      </li><!-- End Search Icon-->
+      <li class="nav-item d-block  ">
+            <a class="btn btn-success mx-2" href="{{ url('/save') }}">Sauvgarder</a>
+       
       </li><!-- End Search Icon-->
       @php
         $notification=\App\Models\Notificaiton::all()

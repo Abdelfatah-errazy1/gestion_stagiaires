@@ -31,7 +31,7 @@ class StageController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'Cin_Stagiaire' => 'required|string|max:10|exists:stagiaires,Cin',
+            'Cin' => 'required|string|max:10|exists:stagiaires,Cin',
             'Date_D' => 'nullable|date',
             'Date_F' => 'nullable|date',
             'Sujet_Stage' => 'nullable|string',

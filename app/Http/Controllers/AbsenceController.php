@@ -51,7 +51,7 @@ class AbsenceController extends Controller
                 'titre'=>'le stagiaire avec le Cin '.$absence->Cin.' a '.count($absences).' absences .'
             ]);
         }
-        dd($noti);
+        // dd($noti);
         return redirect()->route('absences.index');
         
     }

@@ -31,7 +31,7 @@ Route::get('stagiaires/{stagiaire}', [StagiaireController::class, 'destroy'])->n
 Route::get('stages', [StageController::class, 'index'])->name('stages.index');
 Route::get('stages/create', [StageController::class, 'create'])->name('stages.create');
 Route::post('stages', [StageController::class, 'store'])->name('stages.store');
-Route::get('stages/{stage}', [StageController::class, 'show'])->name('stages.show');
+Route::get('stages/show/{stage}', [StageController::class, 'show'])->name('stages.show');
 Route::get('stages/{stage}/edit', [StageController::class, 'edit'])->name('stages.edit');
 Route::put('stages/{stage}', [StageController::class, 'update'])->name('stages.update');
 Route::get('stages/{stage}', [StageController::class, 'destroy'])->name('stages.destroy');
@@ -40,7 +40,7 @@ Route::get('stages/{stage}', [StageController::class, 'destroy'])->name('stages.
 Route::get('absences', [AbsenceController::class, 'index'])->name('absences.index');
 Route::get('absences/create', [AbsenceController::class, 'create'])->name('absences.create');
 Route::post('absences', [AbsenceController::class, 'store'])->name('absences.store');
-Route::get('absences/{absence}', [AbsenceController::class, 'show'])->name('absences.show');
+Route::get('absences/show/{absence}', [AbsenceController::class, 'show'])->name('absences.show');
 Route::get('absences/{absence}/edit', [AbsenceController::class, 'edit'])->name('absences.edit');
 Route::put('absences/{absence}', [AbsenceController::class, 'update'])->name('absences.update');
 Route::get('absences/{absence}', [AbsenceController::class, 'destroy'])->name('absences.destroy');
@@ -48,3 +48,4 @@ Route::get('absences/{absence}', [AbsenceController::class, 'destroy'])->name('a
 Route::get('/save',[DatabaseController::class, 'saveToExcel']);
 Route::get('/',[DashboardController::class, 'index']);
 Route::get('/division/{code}',[DashboardController::class, 'show'])->name('stagiaires.division');
+Route::post('/import',[DatabaseController::class, 'import'])->name('import.excel');

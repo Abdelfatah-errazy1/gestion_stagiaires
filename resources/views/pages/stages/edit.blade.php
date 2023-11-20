@@ -10,8 +10,8 @@ div
             @method('PUT')
             <div class="row">
             <div class="mb-3 col col-md-6">
-                <label for="Cin_Stagiaire" class="form-label">CIN du Stagiaire</label>
-                <input type="text" class="form-control" id="Cin_Stagiaire" name="Cin_Stagiaire" value="{{ $stage->Cin_Stagiaire }}" readonly>
+                <label for="Cin" class="form-label">CIN du Stagiaire</label>
+                <input type="text" class="form-control" id="Cin" name="Cin" value="{{ $stage->Cin }}" readonly>
             </div>
             
             <div class="mb-3 col col-md-6">
@@ -65,7 +65,7 @@ div
                 </div>
                 <div class="col-6 row">
 
-                    <a href="{{ route('stagiaires.index') }}" class="btn btn-secondary ">Annuler</a>
+                    <a href="{{ route('stages.index') }}" class="btn btn-secondary ">Annuler</a>
                 </div>
 
             </div>

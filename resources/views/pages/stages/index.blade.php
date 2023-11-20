@@ -22,7 +22,7 @@
                 @foreach ($stages as $stage)
                     <tr>
                         <td>{{ $stage->id }}</td>
-                        <td>{{ $stage->Cin_Stagiaire }}</td>
+                        <td>{{ $stage->Cin}}</td>
                         <td>{{ $stage->Date_D }}</td>
                         <td>{{ $stage->Date_F }}</td>
                         <td>{{ $stage->Sujet_Stage }}</td>
@@ -33,7 +33,7 @@
 
                                 <a href="{{ route('stages.show', $stage->id) }}" class="btn btn-info btn-sm">Voir</a>
                                 <a href="{{ route('stages.edit', $stage->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                <a href="{{ route('stages.destroy', $stage->id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                <a href="{{ route('stages.destroy', $stage->id) }}" onclick="confirmeDelete(event)" class="btn btn-danger btn-sm">Supprimer</a>
                             </div>
                             {{-- Ajoutez un formulaire pour la suppression si nécessaire --}}
                         </td>

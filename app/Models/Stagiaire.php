@@ -19,11 +19,11 @@ class Stagiaire extends Model
     // Relations
     public function stages()
     {
-        return $this->hasMany(Stage::class, 'Cin_Stagiaire', 'Cin');
+        return $this->hasMany(Stage::class, 'Cin', 'Cin');
     }
 
     public function absences()
     {
-        return $this->hasMany(Absence::class, 'Cin_Stagiaire');
+        return $this->hasMany(Absence::class, 'Cin');
     }
 }

@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Imports\AbsenceImport;
+use App\Imports\StageImport;
+use App\Imports\StagiaireImport;
 use App\Mail\ExcelAttachmentEmail;
-use App\Models\Stagiaire;
-use App\Models\Stage;
 use App\Models\Absence;
+use App\Models\Stage;
+use App\Models\Stagiaire;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -49,5 +54,27 @@ class DatabaseController extends Controller
 
     }
 
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls'
+        ]);
+    
 
+        $file = $request->file('file');
+        // dd($file);
+    
+        try {
+            Excel::import(new StagiaireImport(), $file, 'Stagiaires');
+
+            // Import Stages sheet
+            Excel::import(new StageImport(), $file, 'Stages');
+    
+            // Import Absences sheet
+            Excel::import(new AbsenceImport(), $file, 'Absences');
+            return "Data imported successfully.";
+        } catch (\Exception $e) {
+            return "Error importing data: " . $e->getMessage();
+        }
+    }
 }

@@ -14,8 +14,14 @@ class StagiaireImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Stagiaire([
-            //
-        ]);
+        // dd($row);
+        return Stagiaire::updateOrCreate(
+            ['Cin' => $row[0]], // Update if 'Cin' exists, otherwise insert
+            [
+                'Nom' => $row[4],
+                'Prenom' => $row[5],
+                // ... (other fields)
+            ]
+        );
     }
 }

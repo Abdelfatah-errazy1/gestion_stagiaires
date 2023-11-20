@@ -9,12 +9,11 @@
        
       </div>
       <div class="modal-footer">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
           @csrf
-          
-          <input type="file" id="file-upload" name="file" accept=".xlsx, .xls">
-          <button type="submit" class="btn btn-primary" >Import</button>
-        </form>
+          <input type="file" name="file">
+          <button type="submit">Import Excel</button>
+      </form>
         
         
       </div>

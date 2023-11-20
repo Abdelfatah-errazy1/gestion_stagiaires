@@ -21,7 +21,7 @@
         <a class="nav-link nav-icon search-bar-toggle " href="#">
           <form action="" method="GET">
             @csrf
-            <button class="btn btn-success" type="submit">Sauvgarder</button>
+            <a class="btn btn-success" href="{{ url('/save') }}">Sauvgarder</a>
         </form>
         </a>
       </li><!-- End Search Icon-->

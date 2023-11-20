@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\StagiaireController;
+use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\StageController;
-use App\Http\Controllers\AbsenceController;
+use App\Http\Controllers\StagiaireController;
+use Illuminate\Support\Facades\Route;
+
 
 Route::resource('stagiaires', StagiaireController::class);
 Route::resource('stages', StageController::class);
 Route::resource('absences', AbsenceController::class);
 
-Route::get('/', function () {
-    return view('pages.index');
-});
+Route::get('/save',[DatabaseController::class, 'saveToExcel']);
+Route::get('/',[DashboardController::class, 'index']);

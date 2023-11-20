@@ -28,9 +28,13 @@
                         <td>{{ $stage->Sujet_Stage }}</td>
                         <td>{{ $stage->Division }}</td>
                         <td>{{ $stage->Nom_enc }} {{ $stage->Prenom_enc }}</td>
-                        <td>
-                            <a href="{{ route('stages.show', $stage->id) }}" class="btn btn-info btn-sm">Voir</a>
-                            <a href="{{ route('stages.edit', $stage->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <td >
+                            <div class="d-flex gap-2">
+
+                                <a href="{{ route('stages.show', $stage->id) }}" class="btn btn-info btn-sm">Voir</a>
+                                <a href="{{ route('stages.edit', $stage->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                <a href="{{ route('stages.destroy', $stage->id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                            </div>
                             {{-- Ajoutez un formulaire pour la suppression si nécessaire --}}
                         </td>
                     </tr>

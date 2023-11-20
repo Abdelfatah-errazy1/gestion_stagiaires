@@ -15,7 +15,17 @@
             </div>
             <div class="mb-3 col col-md-6">
                 <label for="Division" class="form-label">Division</label>
-                <input type="text" class="form-control" id="Division" name="Division" required>
+                <select class="form-control" id="Division" name="Division" required>
+                    <option value="EQUIPE">EQUIPE</option>
+                    <option value="DUE">DUE</option>
+                    <option value="DAR">DAR</option>
+                    <option value="DLS">DLS</option>
+                    <option value="DAEC">DAEC</option>
+                    <option value="DBM">DBM</option>
+                    <option value="DCL">DCL</option>
+                    <option value="DRH">DRH</option>
+                  </select>
+                  
             </div>
             <div class="mb-3 col col-md-6">
                 <label for="Date_D" class="form-label">Date de Début</label>

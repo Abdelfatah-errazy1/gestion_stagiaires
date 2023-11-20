@@ -23,9 +23,12 @@
                         <td>{{ $absence->date_fin}}</td>
                         <td>{{ $absence->justification }}</td>
                         <td>
-                            <a href="{{ route('absences.show', $absence->id) }}" class="btn btn-info btn-sm">Voir</a>
-                            <a href="{{ route('absences.edit', $absence->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                            {{-- Ajoutez un formulaire pour la suppression si nécessaire --}}
+                            <div class="d-flex gap-2">
+
+                                <a href="{{ route('absences.show', $absence->id) }}" class="btn btn-info btn-sm">Voir</a>
+                                <a href="{{ route('absences.edit', $absence->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                                <a href="{{ route('absences.destroy', $absence->id) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

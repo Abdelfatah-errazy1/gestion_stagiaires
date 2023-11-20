@@ -1,29 +1,52 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Exports\AllTablesExport;
-use App\Imports\AllTablesImport;
-use App\Mail\DatabaseExportMail;
-use Illuminate\Support\Facades\DB;
+use App\Mail\ExcelAttachmentEmail;
+use App\Models\Stagiaire;
+use App\Models\Stage;
+use App\Models\Absence;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Schema;
-use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 class DatabaseController extends Controller
 {
-    public function exportAndMail()
+   
+    public function saveToExcel()
     {
-        // Export database to Excel
-        $export = new AllTablesExport();
-        $filePath = storage_path('exports/database_backup.xlsx');
-        Excel::store($export, 'database_backup.xlsx');
+         // Retrieve data
+    $stagiaires = Stagiaire::all()->toArray();
+    $stages = Stage::all()->toArray();
+    $absences = Absence::all()->toArray();
 
-        
+    // Create Excel file
+    $spreadsheet = new Spreadsheet();
+    $spreadsheet->getActiveSheet()->setTitle('Stagiaires');
+    $spreadsheet->getActiveSheet()->fromArray($stagiaires, null, 'A1');
 
-        // Send the exported file via email
-        Mail::to('errazy.abdelfatah@gmail.com')->send(new DatabaseExportMail($filePath));
+    $spreadsheet->createSheet();
+    $spreadsheet->setActiveSheetIndex(1);
+    $spreadsheet->getActiveSheet()->setTitle('Stages');
+    $spreadsheet->getActiveSheet()->fromArray($stages, null, 'A1');
 
-        return "Exported database and sent the file via email!";
+    $spreadsheet->createSheet();
+    $spreadsheet->setActiveSheetIndex(2);
+    $spreadsheet->getActiveSheet()->setTitle('Absences');
+    $spreadsheet->getActiveSheet()->fromArray($absences, null, 'A1');
+
+    $filename = 'combined_data.xlsx';
+    $filePath = storage_path('app/' . $filename);
+
+    $writer = new Xlsx($spreadsheet);
+    $writer->save($filePath);
+
+    // Send email with attachment
+    Mail::to('errazy.abdelfatah@gmail.com')->send(new ExcelAttachmentEmail());
+
+    return back()->with('success','les donne sauvgarder avec success');
+    
+
     }
 
 

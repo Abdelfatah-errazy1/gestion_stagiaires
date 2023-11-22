@@ -18,7 +18,7 @@ class DashboardController extends Controller
     public function show($code)
     {
         $stagiaires = Stage::query()
-        ->join('stagiaires', 'stages.Cin_Stagiaire', '=', 'stagiaires.Cin')
+        ->join('stagiaires', 'stages.Cin', '=', 'stagiaires.Cin')
         ->select('stages.Division', 'stagiaires.*')
         ->where('Division',$code)
         ->get();

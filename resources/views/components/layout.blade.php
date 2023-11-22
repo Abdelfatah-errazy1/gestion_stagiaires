@@ -65,7 +65,9 @@
   <!-- End Footer -->
   @include('partials._import')
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  <x-alert :message="session('error')" type="error" />
+  <x-alert :message="session('success')" type="success" />
+  <x-alert :message="session('warning')" type="warning" />
   <!-- Vendor JS Files -->
   <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
